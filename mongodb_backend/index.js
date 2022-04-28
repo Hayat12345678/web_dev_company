@@ -16,32 +16,59 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-const setUpDb = async (db) => {
+const setUpDb = async (users) => {
   const defaultData = {
     cities: [
       {
-        id: 1,
-        name: "Hamburg",
-        inhabitans: 1800000,
+        _id: "62669c29a1e7d4c03e31e61d",
+        firstName: "Onur",
+        lastName: "Kadirov",
+        age: 17,
       },
       {
-        id: 2,
-        name: "Köln",
-        inhabitans: 1086000,
+        _id: "626693dfa1e7d4c03e31e61b",
+        firstName: "Orhan",
+        lastName: "Kadirov",
+        age: 39,
       },
       {
-        id: 3,
-        name: "Berlin",
-        inhabitans: 6200000,
+        _id: "62669c29a1e7d4c03e31e61c",
+        firstName: "Dzhenay",
+        lastName: "Kadirova",
+        age: 37,
+      },
+      {
+        _id: "62669456e24a943359dce849",
+        firstName: "Hayat",
+        lastName: "Alkheder",
+        age: 54,
+      },
+      {
+        _id: "62669be6e24a943359dce84a",
+        firstName: "Lilith",
+        lastName: "Lalash",
+        age: 26,
+      },
+      {
+        _id: "62669fc8ebbd68decc9b67cc",
+        firstName: "Wan",
+        lastName: "Ibrahim",
+        age: 25,
+      },
+      {
+        _id: "62669be6e24a943359dce84b",
+        firstName: "Carlo",
+        lastName: "Lalash",
+        age: 22,
       },
     ],
   };
 
-  await db.read();
+  await users.read();
 
-  if (db.data === null) {
-    db.data = defaultData;
-    await db.write();
+  if (users.data === null) {
+    users.data = defaultData;
+    await users.write();
   }
 };
 
