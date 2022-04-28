@@ -14,11 +14,7 @@ function App() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const loadData = async () => {
-<<<<<<< HEAD
-      const response = await axios.get("REMOTE_CONNECTION");
-=======
       const response = await axios.get("http//http://localhost:3300/users");
->>>>>>> b0ae8f9da9c02a3313b4336a148783d316ad3ec4
       setUsers(response.data);
       console.log(response.data);
     };
