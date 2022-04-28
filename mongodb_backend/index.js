@@ -12,20 +12,22 @@ const userSchema = new mongoose.Schema({
   age: Number,
 });
 
-const User = mongoose.model(("User", userSchema));
+const User = mongoose.model("User", userSchema);
 
 app.get("/", async (req, res) => {
   try {
     const users = await User.find().exec();
-    return req.json(users);
+    return res.json(users);
   } catch (error) {
-    return res.json({ err: err.mesage });
+    return res.json({ err: error.message });
   }
   res.json({ meg: "hallo" });
 });
 
-mongoose.connect(process.env.MONGO_CONNECTION).then(() => {
+mongoose.connect(process.env.REMOTE_CONNECTION).then(() => {
   app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(
+      `Example app listening on port ${port}: http://localhost:3000/`
+    );
   });
 });
