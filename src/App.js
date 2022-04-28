@@ -16,6 +16,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>UI/UX Design Services</h1>
+        <input id="input1" type="text"></input>
+        <button onclick="myFunction()">Click me</button>
         <div>{JSON.stringify(users)}</div>
       </header>
     </div>
