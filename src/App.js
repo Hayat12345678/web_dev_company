@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import AddUser from "./components/AddUser";
+
 function App() {
   const [edit, setEdit] = useState(false);
 
@@ -41,7 +41,6 @@ function App() {
             )}
           </form>
         </div>
-        <AddUser />
         <div>{JSON.stringify(users)}</div>
       </header>
     </div>

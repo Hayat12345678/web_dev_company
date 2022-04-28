@@ -9,8 +9,8 @@ import Users from "./components/Users";
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/users" element={<Users />} />
       <Route path="/" element={<App />} />
+      <Route path="/users" element={<Users />} />
       <Route path="/addUser" element={<AddUser />} />
     </Routes>
   </BrowserRouter>,
