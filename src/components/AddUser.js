@@ -5,14 +5,14 @@ function AddUser() {
     <div className="addUser">
       {" "}
       <div className="label">
+        <label>Add user</label>
+        <button onclick="myFunction()">Add User</button>
         <label>First name</label>
         <input id="input1" type="text"></input>
         <label>Last name</label>
         <input id="input1" type="text"></input>
         <label>Age</label>
         <input id="input1" type="text"></input>
-        <label>Add user</label>
-        <button onclick="myFunction()">Add User</button>
       </div>
     </div>
   );
