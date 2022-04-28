@@ -12,7 +12,7 @@ function App() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const loadData = async () => {
-      const response = await axios.get("http//http://localhost:3000/users");
+      const response = await axios.get("http//http://localhost:3300/users");
       setUsers(response.data);
       console.log(response.data);
     };
