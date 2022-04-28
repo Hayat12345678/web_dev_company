@@ -19,7 +19,7 @@ app.get("/", async (req, res) => {
     const users = await User.find().exec();
     return res.json(users);
   } catch (error) {
-    return res.json({ err: error.message });
+    return res.json({ error: error.message });
   }
   res.json({ meg: "hallo" });
 });
