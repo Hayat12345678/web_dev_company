@@ -4,7 +4,7 @@ import "./users.css";
 function Users() {
   return (
     <header className="Users-header">
-      <div>Users</div>
+      <div>Users</div>;
     </header>
   );
 }
