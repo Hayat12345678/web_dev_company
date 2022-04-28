@@ -3,31 +3,45 @@
 }
 
 .App-header {
+  width: 99wh;
+  margin: auto;
+  height: 100vh;
   background-image: url("../public/44.png");
   background-repeat: no-repeat;
   background-size: cover;
-
-  min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+label {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  margin-left: 40%;
+  padding: 2px;
+}
+
+input:active {
+  background-color: red;
 }
 
 .App-link {
   color: #3297da;
 }
 h1 {
-  margin-left: 30px;
-  margin-top: 20px;
+  margin: 20px auto;
+  text-align: center;
 }
 table,
 th,
 td,
 tr {
-  width: auto;
+  width: 50%;
   margin: auto;
   margin-top: 2rem;
+  padding: 3px;
   border: 2px solid #fff;
   gap: 0;
   background-color: #111;
-  opacity: 0.8;
 }

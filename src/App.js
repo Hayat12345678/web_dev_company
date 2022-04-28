@@ -28,14 +28,14 @@ function App() {
         <h1>UI/UX Design Services</h1>
 
         <label>Search for user </label>
-        <input id="input1" type="text"></input>
+        <input id="input1" type="text" placeholder="Search User Name" />
         <button onclick="myFunction()">Search</button>
         <div>
           <form>
             <label>User Name: </label>
-            <input type="text" />
+            <input type="text" placeholder="User Name" />
             <label>User Name: </label>
-            <input type="text" />
+            <input type="text" placeholder="User Name" />
             {edit ? (
               <button onClick={() => updateUser()}>Save</button>
             ) : (
