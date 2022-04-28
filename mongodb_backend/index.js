@@ -79,7 +79,6 @@ app.get("/", async (req, res) => {
   } catch (error) {
     return res.json({ error: error.message });
   }
-  res.json({ meg: "hallo" });
 });
 
 app.get("/users", async (req, res) => {
@@ -93,11 +92,7 @@ app.get("/users", async (req, res) => {
 
 app.post("/addUser", async (req, res) => {
   try {
-    const newUser = new User({
-      firstName: "jack",
-      lastName: "Sparow",
-      age: 55,
-    });
+    const newUser = new User(req.body);
     await newUser.save();
     return res.json(newUser);
   } catch (error) {
@@ -108,7 +103,7 @@ app.post("/addUser", async (req, res) => {
 mongoose.connect(process.env.REMOTE_CONNECTION).then(() => {
   app.listen(port, () => {
     console.log(
-      `Example app listening on port ${port}: http://localhost:3000/`
+      `Example app listening on port ${port}: http://localhost:3300/`
     );
   });
 });

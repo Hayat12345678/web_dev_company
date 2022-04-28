@@ -19,3 +19,15 @@ h1 {
   margin-left: 30px;
   margin-top: 20px;
 }
+table,
+th,
+td,
+tr {
+  width: auto;
+  margin: auto;
+  margin-top: 2rem;
+  border: 2px solid #fff;
+  gap: 0;
+  background-color: #111;
+  opacity: 0.8;
+}
