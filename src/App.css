@@ -3,7 +3,10 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: url("../public/44.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;

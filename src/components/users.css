@@ -1,0 +1,18 @@
+.Users-header {
+  background-image: url("/public/55.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.addUser {
+  background-image: url("/public/22.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.label {
+  height: auto;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
