@@ -62,10 +62,10 @@ function App() {
               return (
                 <tr>
                   <td>{user._id}</td>
+                  <td>{user.email}</td>
                   <td>{user.firstName}</td>
                   <td>{user.lastName}</td>
                   <td>{user.age}</td>
-                  <td>{user.email}</td>
                 </tr>
               );
             })}
