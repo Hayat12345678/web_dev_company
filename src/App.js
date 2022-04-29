@@ -55,17 +55,17 @@ function App() {
             <th>First Name</th>
             <th>Last Name</th>
             <th>Age</th>
-            <th>Email Addresse</th>
+            <th>Email Address</th>
           </thead>
           <tbody>
             {users.map((user) => {
               return (
                 <tr>
                   <td>{user._id}</td>
-                  <td>{user.email}</td>
                   <td>{user.firstName}</td>
                   <td>{user.lastName}</td>
                   <td>{user.age}</td>
+                  <td>{user.email}</td>
                 </tr>
               );
             })}

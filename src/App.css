@@ -29,13 +29,19 @@ h1 {
   margin: 20px auto;
   text-align: center;
 }
+
+table {
+  width: 80%;
+  background-color: #111;
+  border-collapse: collapse;
+}
+
 table,
 th,
 td {
-  width: 80%;
   margin: auto;
   margin-top: 2rem;
   padding: 3px;
-  border: 2px solid #fff;
-  background-color: #111;
+  border: 3px solid #fff;
+  text-align: center;
 }
