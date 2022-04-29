@@ -22,10 +22,6 @@ input {
   padding: 2px;
 }
 
-input:active {
-  background-color: red;
-}
-
 .App-link {
   color: #3297da;
 }
@@ -35,13 +31,11 @@ h1 {
 }
 table,
 th,
-td,
-tr {
-  width: 50%;
+td {
+  width: 80%;
   margin: auto;
   margin-top: 2rem;
   padding: 3px;
   border: 2px solid #fff;
-  gap: 0;
   background-color: #111;
 }
