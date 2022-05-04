@@ -30,25 +30,7 @@ function App() {
         <label>Search for user </label>
         <input id="input1" type="text" placeholder="Search User Name" />
         <button onclick="myFunction()">Search</button>
-        <div>
-          <form>
-            <label>User Name: </label>
-            <input type="text" placeholder="User Name" />
-            <label>User Name: </label>
-            <input type="text" placeholder="User Name" />
-            {edit ? (
-              <button onClick={() => updateUser()}>Save</button>
-            ) : (
-              <button
-                onClick={() => {
-                  setEdit(true);
-                }}
-              >
-                Edit User
-              </button>
-            )}
-          </form>
-        </div>
+
         <table>
           <thead>
             <th>User Id</th>
@@ -66,6 +48,8 @@ function App() {
                   <td>{user.lastName}</td>
                   <td>{user.age}</td>
                   <td>{user.email}</td>
+                  <button>Delete</button>
+                  <button>Edit</button>
                 </tr>
               );
             })}
