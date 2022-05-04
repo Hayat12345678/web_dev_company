@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   age: Number,
+  email: String,
 });
 
 const User = mongoose.model("User", userSchema);
@@ -20,43 +21,36 @@ const setUpDb = async (users) => {
   const defaultData = {
     cities: [
       {
-        _id: "62669c29a1e7d4c03e31e61d",
         firstName: "Onur",
         lastName: "Kadirov",
         age: 17,
       },
       {
-        _id: "626693dfa1e7d4c03e31e61b",
         firstName: "Orhan",
         lastName: "Kadirov",
         age: 39,
       },
       {
-        _id: "62669c29a1e7d4c03e31e61c",
         firstName: "Dzhenay",
         lastName: "Kadirova",
         age: 37,
       },
       {
-        _id: "62669456e24a943359dce849",
         firstName: "Hayat",
         lastName: "Alkheder",
         age: 54,
       },
       {
-        _id: "62669be6e24a943359dce84a",
         firstName: "Lilith",
         lastName: "Lalash",
         age: 26,
       },
       {
-        _id: "62669fc8ebbd68decc9b67cc",
         firstName: "Wan",
         lastName: "Ibrahim",
         age: 25,
       },
       {
-        _id: "62669be6e24a943359dce84b",
         firstName: "Carlo",
         lastName: "Lalash",
         age: 22,
@@ -90,10 +84,25 @@ app.get("/users", async (req, res) => {
   }
 });
 
+app.patch("/deleteUser", async (req, res) => {
+  try {
+    await User.findByIdAndDelete(User._id);
+    process.exit(0);
+  } catch (error) {
+    return res.json({ error: error.message });
+  }
+});
+
 app.post("/addUser", async (req, res) => {
   try {
-    const newUser = new User(req.body);
-    await newUser.save();
+    const newUser = new User({
+      firstName: String,
+      lastName: String,
+      age: Number,
+      email: String,
+    });
+    const tempUser = await newUser.save();
+    tempUser.collection.insertOne();
     return res.json(newUser);
   } catch (error) {
     return res.json({ error: error.message });
