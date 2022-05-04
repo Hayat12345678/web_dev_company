@@ -48,8 +48,10 @@ function App() {
                   <td>{user.lastName}</td>
                   <td>{user.age}</td>
                   <td>{user.email}</td>
-                  <button>Delete</button>
-                  <button>Edit</button>
+                  <td>
+                    <button>Delete</button>
+                    <button>Edit</button>
+                  </td>
                 </tr>
               );
             })}

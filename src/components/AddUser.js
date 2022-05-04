@@ -3,16 +3,12 @@ import "./users.css";
 function AddUser() {
   return (
     <div className="addUser">
-      {" "}
-      <div className="label">
-        <label>Add user</label>
+      <div className="userBox">
+        <input id="input1" type="text" placeholder="First Name"></input>
+        <input id="input1" type="text" placeholder="Last Name"></input>
+        <input id="input1" type="text" placeholder="Age"></input>
+        <input id="input1" type="text" placeholder="Email Address"></input>
         <button onclick="myFunction()">Add User</button>
-        <label>First name</label>
-        <input id="input1" type="text"></input>
-        <label>Last name</label>
-        <input id="input1" type="text"></input>
-        <label>Age</label>
-        <input id="input1" type="text"></input>
       </div>
     </div>
   );
