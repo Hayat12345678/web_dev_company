@@ -1,18 +1,42 @@
-.Users-header {
-  background-image: url("/public/55.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+* {
+  margin: 0;
+  padding: 0;
 }
 .addUser {
+  padding: 2rem;
   background-image: url("/public/22.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
-.label {
+input {
   height: auto;
   width: 350px;
-  display: flex;
-  flex-direction: column;
+  margin: 0.3em auto;
+  padding: 0.6em;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 0.6em;
+  border: none;
+}
+
+.userBox {
+  width: 350px;
+  margin: auto;
+}
+
+button {
+  padding: 0.5em;
+  margin: 0.2em auto;
+  margin-left: 0.5em;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 0.5em;
+  border: none;
+  background-color: #1db854;
+}
+
+button:hover {
+  border: none;
+  background-color: #45fc85;
 }

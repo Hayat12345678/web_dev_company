@@ -25,8 +25,16 @@ function App() {
         <h1>UI/UX Design Services</h1>
 
         <label>Search for user </label>
-        <input id="input1" type="text" placeholder="Search User Name" />
-        <button onclick="myFunction()">Search</button>
+
+        <input
+          id="input1"
+          type="text"
+          placeholder="Search User Name"
+          name="search"
+        />
+        <button onclick="myFunction()">
+          <i class="fa fa-search"></i>
+        </button>
 
         <table>
           <thead>
@@ -45,8 +53,10 @@ function App() {
                   <td>{user.lastName}</td>
                   <td>{user.age}</td>
                   <td>{user.email}</td>
-                  <button>Delete</button>
-                  <button>Edit</button>
+                  <td>
+                    <button>Delete</button>
+                    <button>Edit</button>
+                  </td>
                 </tr>
               );
             })}

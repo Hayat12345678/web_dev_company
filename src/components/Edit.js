@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function Edit() {
-  const { userId } = useParams();
+  const { userId } = useParams(userId);
   const [edit, setEdit] = useState(false);
 
   const updateUser = () => {

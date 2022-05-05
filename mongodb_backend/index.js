@@ -17,58 +17,55 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-const setUpDb = async (users) => {
-  const defaultData = {
-    cities: [
-      {
-        firstName: "Onur",
-        lastName: "Kadirov",
-        age: 17,
-      },
-      {
-        firstName: "Orhan",
-        lastName: "Kadirov",
-        age: 39,
-      },
-      {
-        firstName: "Dzhenay",
-        lastName: "Kadirova",
-        age: 37,
-      },
-      {
-        firstName: "Hayat",
-        lastName: "Alkheder",
-        age: 54,
-      },
-      {
-        firstName: "Lilith",
-        lastName: "Lalash",
-        age: 26,
-      },
-      {
-        firstName: "Wan",
-        lastName: "Ibrahim",
-        age: 25,
-      },
-      {
-        firstName: "Carlo",
-        lastName: "Lalash",
-        age: 22,
-      },
-    ],
-  };
-
-  await users.read();
-
-  if (users.data === null) {
-    users.data = defaultData;
-    await users.write();
-  }
-};
-
 app.get("/", async (req, res) => {
   try {
     const users = await User.find().exec();
+    await users.read();
+
+    const defaultData = {
+      cities: [
+        {
+          firstName: "Onur",
+          lastName: "Kadirov",
+          age: 17,
+        },
+        {
+          firstName: "Orhan",
+          lastName: "Kadirov",
+          age: 39,
+        },
+        {
+          firstName: "Dzhenay",
+          lastName: "Kadirova",
+          age: 37,
+        },
+        {
+          firstName: "Hayat",
+          lastName: "Alkheder",
+          age: 54,
+        },
+        {
+          firstName: "Lilith",
+          lastName: "Lalash",
+          age: 26,
+        },
+        {
+          firstName: "Wan",
+          lastName: "Ibrahim",
+          age: 25,
+        },
+        {
+          firstName: "Carlo",
+          lastName: "Lalash",
+          age: 22,
+        },
+      ],
+    };
+
+    if (User.data === null) {
+      users.data = defaultData;
+      await users.write();
+    }
     return res.json(users);
   } catch (error) {
     return res.json({ error: error.message });
@@ -84,26 +81,20 @@ app.get("/users", async (req, res) => {
   }
 });
 
-app.patch("/deleteUser", async (req, res) => {
+app.delete("/users/:userId", async (req, res) => {
   try {
-    await User.findByIdAndDelete(User._id);
-    process.exit(0);
-  } catch (error) {
-    return res.json({ error: error.message });
+    const { userId } = req.params;
+    await User.findByIdAndRemove(userId);
+    return res.sendStatus(200);
+  } catch (err) {
+    return res.json({ err: err.message });
   }
 });
 
-app.post("/addUser", async (req, res) => {
+app.post("/users/addUser", async (req, res) => {
   try {
-    const newUser = new User({
-      firstName: String,
-      lastName: String,
-      age: Number,
-      email: String,
-    });
-    const tempUser = await newUser.save();
-    tempUser.collection.insertOne();
-    return res.json(newUser);
+    User.collection.insertOne();
+    return res.json(User);
   } catch (error) {
     return res.json({ error: error.message });
   }
