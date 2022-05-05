@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model("User", userSchema);
+module.exports = User;
 
 app.get("/", async (req, res) => {
   try {
@@ -92,6 +93,7 @@ app.delete("/users/:userId", async (req, res) => {
 });
 
 app.post("/users/addUser", async (req, res) => {
+  //const
   try {
     User.collection.insertOne();
     return res.json(User);

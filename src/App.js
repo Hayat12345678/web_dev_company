@@ -5,14 +5,8 @@ import axios from "axios";
 // dotenv.config();
 
 function App() {
-  const [edit, setEdit] = useState(false);
-
-  const updateUser = () => {
-    //update action
-    setEdit(false);
-  };
-
   const [users, setUsers] = useState([]);
+
   useEffect(() => {
     const loadData = async () => {
       const response = await axios.get("http://localhost:3300/users");
