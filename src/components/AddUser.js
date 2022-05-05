@@ -1,14 +1,51 @@
 import React from "react";
+import { useState } from "react";
+import axios from "axios";
 import "./users.css";
+
 function AddUser() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState(0);
+  const [email, setEmail] = useState("");
+
+  const addUser = () => {
+    axios.post("");
+    console.log(firstName + lastName + age + email);
+  };
+
   return (
     <div className="addUser">
       <div className="userBox">
-        <input id="input1" type="text" placeholder="First Name"></input>
-        <input id="input1" type="text" placeholder="Last Name"></input>
-        <input id="input1" type="text" placeholder="Age"></input>
-        <input id="input1" type="text" placeholder="Email Address"></input>
-        <button onclick="myFunction()">Add User</button>
+        <input
+          type="text"
+          placeholder="First Name"
+          onChange={(e) => {
+            setFirstName(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Last Name"
+          onChange={(e) => {
+            setLastName(e.target.value);
+          }}
+        />
+        <input
+          type="number"
+          placeholder="Age"
+          onChange={(e) => {
+            setAge(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Email Address"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <button onclick="addUser()">Add User</button>
       </div>
     </div>
   );

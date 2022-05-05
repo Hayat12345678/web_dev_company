@@ -91,7 +91,8 @@ app.delete("/users/:userId", async (req, res) => {
   }
 });
 
-app.post("/users/addUser", async (req, res) => {
+app.post("/addUser", async (req, res) => {
+  //const
   try {
     User.collection.insertOne();
     return res.json(User);
