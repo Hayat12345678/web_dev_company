@@ -7,7 +7,6 @@ import Edit from "./components/Edit";
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [user, setUser] = useState();
   useEffect(() => {
     const loadData = async () => {
       const response = await axios.get("http://localhost:3300/users");
@@ -17,8 +16,6 @@ function App() {
     loadData();
   }, []);
 
-  useEffect(() => {});
-
   return (
     <div className="App">
       <header className="App-header">
@@ -27,7 +24,6 @@ function App() {
         <label>Search for user </label>
         <input id="input1" type="text" placeholder="Search User Name" />
         <button onclick="myFunction()">Search</button>
-
         <table>
           <thead>
             <th>User Id</th>
@@ -45,8 +41,10 @@ function App() {
                   <td>{user.lastName}</td>
                   <td>{user.age}</td>
                   <td>{user.email}</td>
-                  <button>Delete</button>
-                  <button>Edit</button>
+                  <td>
+                    <button>Delete</button>
+                    <button onClick={Edit}>Edit</button>
+                  </td>
                 </tr>
               );
             })}

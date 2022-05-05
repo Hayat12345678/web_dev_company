@@ -10,7 +10,12 @@ function AddUser() {
   const [email, setEmail] = useState("");
 
   const addUser = () => {
-    axios.post("");
+    axios.post("http://localhost:3300/", {
+      firstName: firstName,
+      lastName: lastName,
+      age: age,
+      email: email,
+    });
     console.log(firstName + lastName + age + email);
   };
 
@@ -45,7 +50,7 @@ function AddUser() {
             setEmail(e.target.value);
           }}
         />
-        <button onclick="addUser()">Add User</button>
+        <button onClick={addUser()}>Add User</button>
       </div>
     </div>
   );
