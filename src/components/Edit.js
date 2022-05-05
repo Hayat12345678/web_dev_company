@@ -1,7 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function Edit() {
+  const { userId } = useParams();
   const [edit, setEdit] = useState(false);
 
   const updateUser = () => {
