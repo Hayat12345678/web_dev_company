@@ -7,11 +7,7 @@ import Edit from "./components/Edit";
 
 function App() {
   const [users, setUsers] = useState([]);
-<<<<<<< HEAD
   const [user, setUser] = useState();
-=======
-
->>>>>>> 4362b3b22b485e1b3d29d58c32ca0ef79b996fec
   useEffect(() => {
     const loadData = async () => {
       const response = await axios.get("http://localhost:3300/users");
@@ -29,16 +25,8 @@ function App() {
         <h1>UI/UX Design Services</h1>
 
         <label>Search for user </label>
-
-        <input
-          id="input1"
-          type="text"
-          placeholder="Search User Name"
-          name="search"
-        />
-        <button onclick="myFunction()">
-          <i class="fa fa-search"></i>
-        </button>
+        <input id="input1" type="text" placeholder="Search User Name" />
+        <button onclick="myFunction()">Search</button>
 
         <table>
           <thead>
@@ -57,10 +45,8 @@ function App() {
                   <td>{user.lastName}</td>
                   <td>{user.age}</td>
                   <td>{user.email}</td>
-                  <td>
-                    <button>Delete</button>
-                    <button>Edit</button>
-                  </td>
+                  <button>Delete</button>
+                  <button>Edit</button>
                 </tr>
               );
             })}

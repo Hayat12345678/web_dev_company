@@ -40,3 +40,10 @@ button:hover {
   border: none;
   background-color: #45fc85;
 }
+.Users-header {
+  padding: 2rem;
+  background-image: url("/public/55.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
