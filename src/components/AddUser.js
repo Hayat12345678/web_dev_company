@@ -45,7 +45,7 @@ function AddUser() {
             setEmail(e.target.value);
           }}
         />
-        <button onclick="adUser()">Add User</button>
+        <button onclick="addUser()">Add User</button>
       </div>
     </div>
   );
