@@ -7,11 +7,6 @@ import Edit from "./components/Edit";
 
 function App() {
   const [users, setUsers] = useState([]);
-<<<<<<< HEAD
-  const [user, setUser] = useState();
-=======
-
->>>>>>> 4362b3b22b485e1b3d29d58c32ca0ef79b996fec
   useEffect(() => {
     const loadData = async () => {
       const response = await axios.get("http://localhost:3300/users");
@@ -20,8 +15,6 @@ function App() {
     };
     loadData();
   }, []);
-
-  useEffect(() => {});
 
   return (
     <div className="App">
@@ -59,7 +52,7 @@ function App() {
                   <td>{user.email}</td>
                   <td>
                     <button>Delete</button>
-                    <button>Edit</button>
+                    <button onClick={Edit}>Edit</button>
                   </td>
                 </tr>
               );

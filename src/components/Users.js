@@ -1,7 +1,7 @@
 import React from "react";
 import "./users.css";
 
-function Users({ fName, lName, age, email }) {
+function Users() {
   return (
     <header className="Users-header">
       <div>Users</div>;

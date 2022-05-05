@@ -6,6 +6,7 @@ dotenv.config();
 
 const port = process.env.PORT || 3000;
 const app = express();
+app.use(express.json());
 app.use(cors());
 
 const userSchema = new mongoose.Schema({
@@ -92,9 +93,13 @@ app.delete("/users/:userId", async (req, res) => {
 });
 
 app.post("/addUser", async (req, res) => {
-  //const
+  // const firstName = req.body.firstName;
+  // const lastName = req.body.lastName;
+  // const age = req.body.age;
+  // const email = req.body.email;
+  // const User = new UserModel {firstName: firstName,lastName: lastName, age: age, email: email}
   try {
-    User.collection.insertOne();
+    await User.save();
     return res.json(User);
   } catch (error) {
     return res.json({ error: error.message });
