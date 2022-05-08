@@ -2,11 +2,15 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Edit from "./components/Edit";
+import { Search } from "./components/Search";
+import { Link } from "react-router-dom";
+
 // import dotenv from "dotenv";
 // dotenv.config();
 
 function App() {
   const [users, setUsers] = useState([]);
+
   useEffect(() => {
     const loadData = async () => {
       const response = await axios.get("http://localhost:3300/users");
@@ -22,8 +26,9 @@ function App() {
         <h1>UI/UX Design Services</h1>
 
         <label>Search for user </label>
-        <input id="input1" type="text" placeholder="Search User Name" />
-        <button onclick="myFunction()">Search</button>
+        <Edit />
+        <Search />
+
         <table>
           <thead>
             <th>User Id</th>
@@ -41,10 +46,8 @@ function App() {
                   <td>{user.lastName}</td>
                   <td>{user.age}</td>
                   <td>{user.email}</td>
-                  <td>
-                    <button>Delete</button>
-                    <button onClick={Edit}>Edit</button>
-                  </td>
+                  <button>Delete</button>
+                  <button>Edit</button>
                 </tr>
               );
             })}
