@@ -93,14 +93,16 @@ app.delete("/users/:userId", async (req, res) => {
 });
 
 app.post("/addUser", async (req, res) => {
-  // const firstName = req.body.firstName;
-  // const lastName = req.body.lastName;
-  // const age = req.body.age;
-  // const email = req.body.email;
   // const User = new UserModel {firstName: firstName,lastName: lastName, age: age, email: email}
   try {
-    await User.save();
-    return res.json(User);
+    const newUser = new User({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      age: req.body.age,
+      email: req.body.email,
+    });
+    await newUser.save();
+    return res.json(newUser);
   } catch (error) {
     return res.json({ error: error.message });
   }
