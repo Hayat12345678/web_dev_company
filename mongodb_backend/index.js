@@ -82,6 +82,20 @@ app.get("/users", async (req, res) => {
   }
 });
 
+app.get("/users", async (req, res) => {
+  try {
+    await User.findByIdAndUpdate("users._id", {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      age: req.body.age,
+      email: req.body.email,
+    }).exec();
+    return res.json();
+  } catch (error) {
+    return res.json({ error: error.message });
+  }
+});
+
 app.delete("/users/:userId", async (req, res) => {
   try {
     const { userId } = req.params;
@@ -92,7 +106,7 @@ app.delete("/users/:userId", async (req, res) => {
   }
 });
 
-app.post("/addUser", async (req, res) => {
+app.post("/add+user", async (req, res) => {
   // const User = new UserModel {firstName: firstName,lastName: lastName, age: age, email: email}
   try {
     const newUser = new User({
