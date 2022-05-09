@@ -47,3 +47,16 @@ button:hover {
   background-size: cover;
   height: 100vh;
 }
+.search {
+  width: 600px;
+  margin: auto;
+}
+input {
+  border: #1db854 1px solid;
+}
+.search-header {
+  padding: 2rem;
+  background-image: url("/public/123.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

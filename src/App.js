@@ -4,6 +4,7 @@ import axios from "axios";
 import Edit from "./components/Edit";
 import { Search } from "./components/Search";
 import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 // import dotenv from "dotenv";
 // dotenv.config();
@@ -24,11 +25,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>UI/UX Design Services</h1>
-
         <label>Search for user </label>
-        <Edit />
-        <Search />
-
+        <Link to="/search">Suche</Link> <Link to="/users">Users</Link>
+        {"   "}
+        <Outlet />
         <table>
           <thead>
             <th>User Id</th>
