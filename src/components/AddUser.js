@@ -9,8 +9,8 @@ function AddUser() {
   const [age, setAge] = useState(0);
   const [email, setEmail] = useState("");
 
-  const addUser = () => {
-    axios.post("http://localhost:3300/", {
+  const addUser = async () => {
+    await axios.post("http://localhost:3300/addUser", {
       firstName: firstName,
       lastName: lastName,
       age: age,
@@ -50,7 +50,7 @@ function AddUser() {
             setEmail(e.target.value);
           }}
         />
-        <button onClick={addUser()}>Add User</button>
+        <button onClick={addUser}>Add User</button>
       </div>
     </div>
   );
