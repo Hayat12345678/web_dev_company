@@ -1,9 +1,33 @@
 import { FaSearch } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import Users from "./Users";
+import axios from "axios";
 
 export const Search = ({ onSearchTermChange = () => {} }) => {
   const [searchText, setSearchText] = useState(" ");
-  console.log(onSearchTermChange);
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [customers, setCustomers] = useState([]);
+
+  const handleSearchTermChange = (newSearchTerm) => {
+    navigate(`/search?firstName=${newSearchTerm}`);
+  };
+
+  const firstName = searchParams.get("firstName");
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3300/users");
+        setCustomers(response.data);
+      } catch (err) {
+        // console.log(err);
+        alert(err);
+      }
+    };
+    loadData();
+  }, []);
 
   return (
     <header className="search-header">
@@ -23,12 +47,26 @@ export const Search = ({ onSearchTermChange = () => {} }) => {
         />
         <button
           onClick={() => {
-            onSearchTermChange(searchText);
+            onSearchTermChange(handleSearchTermChange);
           }}
         >
           <FaSearch className="icon" />
         </button>
       </div>
+
+      {Users.filter((user) => {
+        if (
+          firstName === searchText ||
+          firstName === null ||
+          firstName === undefined
+        ) {
+          if (user.firstName === searchText) {
+            return user._id;
+          } else {
+            return "User not found!";
+          }
+        }
+      })}
     </header>
   );
 };

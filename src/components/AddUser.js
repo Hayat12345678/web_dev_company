@@ -10,13 +10,13 @@ function AddUser() {
   const [email, setEmail] = useState("");
 
   const addUser = async () => {
-    await axios.post("http://localhost:3300/addUser", {
+    await axios.post("http://localhost:3300/add+user", {
       firstName: firstName,
       lastName: lastName,
       age: age,
       email: email,
     });
-    console.log(firstName + lastName + age + email);
+    //console.log(firstName + lastName + age + email);
   };
 
   return (
