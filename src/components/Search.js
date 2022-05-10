@@ -1,36 +1,16 @@
 import { FaSearch } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Users from "./Users";
-import axios from "axios";
 
 export const Search = ({ onSearchTermChange = () => {} }) => {
   const [searchText, setSearchText] = useState(" ");
-  const navigate = useNavigate();
+  console.log(onSearchTermChange);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [customers, setCustomers] = useState([]);
-
-  const handleSearchTermChange = (newSearchTerm) => {
-    navigate(`/search?firstName=${newSearchTerm}`);
-  };
-
-  const firstName = searchParams.get("firstName");
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const response = await axios.get("http://localhost:3300/users");
-        setCustomers(response.data);
-      } catch (err) {
-        // console.log(err);
-        alert(err);
-      }
-    };
-    loadData();
-  }, []);
+  const [users, setUsers] = useState([]);
 
   return (
-    <header className="search-header">
+    <header className="Users-header">
       <div className="search">
         <h1>Search User</h1>
         <input
