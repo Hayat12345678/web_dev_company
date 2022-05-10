@@ -82,7 +82,7 @@ app.get("/users", async (req, res) => {
   }
 });
 
-app.get("/users", async (req, res) => {
+app.patch("/edit:userId", async (req, res) => {
   try {
     await User.findByIdAndUpdate("users._id", {
       firstName: req.body.firstName,
